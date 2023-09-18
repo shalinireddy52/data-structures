@@ -7,11 +7,19 @@ class Stack:
 
     def pop(self):
         if self.is_empty():
-            return None
+            raise IndexError("Pop from empty stack")
         return self.stack.pop()
+
+    def peek(self):
+        if self.is_empty():
+            raise IndexError("Peek from empty stack")
+        return self.stack[-1]
 
     def is_empty(self):
         return len(self.stack) == 0
 
-    def peek(self):
-        return self.stack[-1] if self.stack else None
+    def clear(self):
+        self.stack = []
+
+    def display(self):
+        return self.stack
